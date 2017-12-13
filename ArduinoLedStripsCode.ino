@@ -149,17 +149,20 @@ void loop() {
       }
     }
     //end of while Loop
+    //This is repeated every interval 
     clearLeds(listOfLedPositions); //turn LEDS off
-    moveAllLeds(listOfLedPositions);
+    moveAllLeds(listOfLedPositions); //moves all LEDs down one step
+  //checks whethere colours need setting
     if (listOfLedPositions[0][0] != 230|| listOfLedPositions[0][1] != 230|| listOfLedPositions[0][2] != 230 || listOfLedPositions[0][3] != 230|| listOfLedPositions[0][4] != 230|| listOfLedPositions[0][5] != 230 ||
         listOfLedPositions[1][0] != 230|| listOfLedPositions[1][1] != 230|| listOfLedPositions[1][2] != 230 || listOfLedPositions[1][3] != 230|| listOfLedPositions[1][4] != 230|| listOfLedPositions[1][5] != 230 ||
         listOfLedPositions[2][0] != 230|| listOfLedPositions[2][1] != 230|| listOfLedPositions[2][2] != 230 || listOfLedPositions[2][3] != 230|| listOfLedPositions[2][4] != 230|| listOfLedPositions[2][5] != 230 ||
         listOfLedPositions[3][0] != 230|| listOfLedPositions[3][1] != 230|| listOfLedPositions[3][2] != 230 || listOfLedPositions[3][3] != 230|| listOfLedPositions[3][4] != 230|| listOfLedPositions[3][5] != 230) {
-          setColour(128,0,128,listOfLedPositions,0);
-          setColour(0,255,0,listOfLedPositions,1);
-          setColour(255,0,0,listOfLedPositions,2);
-          setColour(0,0,255,listOfLedPositions,3);
-          FastLED.show();
+          setColour(128,0,128,listOfLedPositions,0); // setting colours for strip zero
+          setColour(0,255,0,listOfLedPositions,1); //strip one
+          setColour(255,0,0,listOfLedPositions,2); // strip 2
+          setColour(0,0,255,listOfLedPositions,3); //strip 3
+          FastLED.show(); //show the set colour
+        //end of this movement loop, it will return back to top of void loop and begin checking again
           
       }
 }
